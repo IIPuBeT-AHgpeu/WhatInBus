@@ -44,7 +44,7 @@ namespace WhatInBus.Controllers
                 {
                     list.Add(new HistoryWithBase64
                     {
-                        Id = result.Id,
+                        Id = (int)result.Id!,
                         Result = result.Result,
                         Image = Convert.ToBase64String(result.Image)
                     });

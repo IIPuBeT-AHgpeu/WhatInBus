@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Drawing;
 using WhatInBus.Croppers;
 using WhatInBus.FileManagement;
 
@@ -10,7 +11,7 @@ namespace WhatInBus.Controllers
     public class CropController : Controller
     {
         private IFileManager<ImageInDataset> _fileManager;
-        private ICropper _cropper;
+        private ICropper<Rectangle> _cropper;
 
         public CropController()
         {

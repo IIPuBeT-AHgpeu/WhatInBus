@@ -2,7 +2,7 @@
 
 namespace WhatInBus.Croppers
 {
-    public class Cropper : ICropper
+    public class Cropper : ICropper<Rectangle>
     {
         public byte[] CropImage(byte[] image, Rectangle area)
         {

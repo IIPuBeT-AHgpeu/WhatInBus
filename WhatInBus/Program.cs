@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using System.Drawing;
 using WhatInBus.Croppers;
 using WhatInBus.Database;
 using WhatInBus.FileManagement;
@@ -17,7 +18,7 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<PfHistoryContext>(options => options.UseNpgsql(connectionString));
 
 builder.Services.AddTransient<IRepository<Recognize>, Repository<Recognize>>();
-builder.Services.AddTransient<ICropper, Cropper>();
+builder.Services.AddTransient<ICropper<Rectangle>, Cropper>();
 builder.Services.AddTransient<IFileManager<ImageInDataset>, ImageFileManager>();
 
 var app = builder.Build();

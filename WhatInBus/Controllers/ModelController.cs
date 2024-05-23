@@ -10,10 +10,10 @@ namespace WhatInBus.Controllers
     [Route("model")]
     public class ModelController : ControllerBase
     {
-        private ICropper _cropper;
+        private ICropper<Rectangle> _cropper;
         private IRepository<Recognize> _rep;
 
-        public ModelController(ICropper cropper, IRepository<Recognize> repository) 
+        public ModelController(ICropper<Rectangle> cropper, IRepository<Recognize> repository) 
         {
             _cropper = cropper; 
             _rep = repository;
@@ -43,7 +43,7 @@ namespace WhatInBus.Controllers
                 var sortedScoresWithLabel = FullCroppedClassificationModel.PredictAllLabels(sampleData);
 
                 Recognize record = new Recognize();
-                
+
                 record.Image = bytes;
                 record.ModelName = "FullCroppedClassificationModel";
                 record.Result = GetMaxInKeyValuePair(sortedScoresWithLabel);
